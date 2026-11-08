@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Life - Thời Trang Tái Chế & Kỷ Niệm Số (Phygital Memory)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f4f7f4',
+                            100: '#e3ebe3',
+                            200: '#c7d8c7',
+                            500: '#2d5a27', // Eco-Green
+                            600: '#23471f',
+                            700: '#1b3718',
+                            800: '#142712',
+                            gold: '#c5a059', // Luxury Gold Accent
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #2d5a27; border-radius: 4px; }
+        .bg-pattern {
+            background-color: #f8faf8;
+            background-image: radial-gradient(#2d5a27 0.5px, transparent 0.5px), radial-gradient(#2d5a27 0.5px, #f8faf8 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-brand-50 antialiased selection:bg-brand-500 selection:text-white pb-20 md:pb-0">
+
+    <!-- 1. BANNER CHÍNH SÁCH GIÁ 6 THÁNG & ĐỒNG HỒ PRE-ORDER THỜI GIAN THỰC -->
+    <div id="promo-banner" class="bg-brand-700 text-white py-2.5 px-4 text-xs md:text-sm font-medium sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
+            <div class="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
+                <span class="bg-brand-gold text-brand-800 text-[10px] uppercase font-bold px-2.5 py-0.5 rounded-full">Chính Sách Giá 6 Tháng</span>
+                <span>Tháng 1–2: Giá ưu đãi <strong>149.000 VNĐ/sản phẩm</strong> (30 đơn đầu). Tháng 3–6: Giá tiêu chuẩn <strong>169.000 VNĐ/sản phẩm</strong>.</span>
+            </div>
+            <div class="flex items-center gap-2 bg-black/40 px-3 py-1 rounded-full text-brand-gold font-mono font-bold text-xs border border-brand-gold/30 shadow-inner">
+                <i class="fa-regular fa-clock animate-pulse"></i>
+                <span>Pre-Order Kết Thúc Sau: </span>
+                <span id="countdown-timer" class="text-white font-bold">03d : 12h : 45m : 30s</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. HEADER & NAVIGATION -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-brand-100 sticky top-10 z-40 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-brand-500 text-white flex items-center justify-center font-serif text-xl font-bold group-hover:bg-brand-gold transition-colors shadow-md">
+                        SL
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-2xl font-bold tracking-wider text-brand-800">SECOND LIFE</span>
+                        <span class="text-[10px] uppercase tracking-widest text-brand-500 font-semibold">Phygital Eco-Fashion & Memories</span>
+                    </div>
+                </a>
+
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-gray-700">
+                    <a href="#about" class="hover:text-brand-500 transition-colors py-1 border-b-2 border-transparent hover:border-brand-500">Giới thiệu</a>
+                    <a href="#team" class="hover:text-brand-500 transition-colors py-1 border-b-2 border-transparent hover:border-brand-500">Đội ngũ sáng lập</a>
+                    <a href="#products" class="hover:text-brand-500 transition-colors py-1 border-b-2 border-transparent hover:border-brand-500">Sản phẩm & Bảng giá</a>
+                    <a href="#process" class="hover:text-brand-500 transition-colors py-1 border-b-2 border-transparent hover:border-brand-500">Mô hình dịch vụ</a>
+                    <a href="#testimonials" class="hover:text-brand-500 transition-colors py-1 border-b-2 border-transparent hover:border-brand-500">Đánh giá</a>
+                    <a href="#contact" class="hover:text-brand-500 transition-colors py-1 border-b-2 border-transparent hover:border-brand-500">Liên hệ Hub</a>
+                </nav>
+
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleCartDrawer()" class="relative p-2.5 text-brand-700 hover:text-brand-500 hover:bg-brand-50 rounded-full transition-all focus:outline-none" aria-label="Open Cart">
+                        <i class="fa-solid fa-bag-shopping text-xl"></i>
+                        <span id="cart-badge" class="absolute top-0 right-0 bg-brand-gold text-brand-800 text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-sm">0</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-gray-700 hover:text-brand-500">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 hover:text-brand-500">Giới thiệu</a>
+            <a href="#team" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 hover:text-brand-500">Đội ngũ sáng lập</a>
+            <a href="#products" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 hover:text-brand-500">Sản phẩm & Bảng giá</a>
+            <a href="#process" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 hover:text-brand-500">Mô hình dịch vụ</a>
+            <a href="#testimonials" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 hover:text-brand-500">Đánh giá</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-gray-700 hover:text-brand-500">Liên hệ Hub</a>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION -->
+    <section class="relative bg-gradient-to-b from-brand-100/50 to-brand-50 py-16 md:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 text-brand-600 font-semibold text-xs uppercase tracking-wider border border-brand-500/20">
+                        <i class="fa-solid fa-sparkles text-brand-gold"></i> Thời trang Tái chế & Công nghệ Phygital
+                    </div>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-800 leading-tight">
+                        Don't waste memories, <span class="italic font-normal text-brand-500 block underline decoration-brand-gold/40">revive them!</span>
+                    </h1>
+                    <p class="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Chào mừng bạn đến với Second Life (SL) – Dịch vụ tái thiết kế thời trang bền vững tích hợp lưu trữ kỷ niệm số. Chúng tôi biến những chiếc áo lớp, áo nhóm cũ trong tủ đồ thành Túi Tote Remake, gắn mã QR Digital Memory kết nối trực tiếp đến không gian hình ảnh và video kỷ niệm riêng tư của bạn.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#products" class="w-full sm:w-auto px-8 py-4 bg-brand-500 text-white font-semibold rounded-full shadow-lg shadow-brand-500/30 hover:bg-brand-600 transition-all text-center flex items-center justify-center gap-3">
+                            <span>Khám Phá Gói Sản Phẩm</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#process" class="w-full sm:w-auto px-8 py-4 bg-white border border-brand-200 text-brand-700 font-semibold rounded-full hover:bg-brand-50 transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-play text-xs text-brand-500"></i> Xem Mô Hình Dịch Vụ
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden shadow-2xl bg-white p-3 border border-brand-100 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80" alt="Túi Tote Second Life Remake" class="w-full h-96 object-cover rounded-2xl">
+                        
+                        <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-brand-100 shadow-xl flex items-center gap-4">
+                            <div class="w-12 h-12 bg-brand-500 rounded-xl flex items-center justify-center text-white text-2xl flex-shrink-0 shadow-md">
+                                <i class="fa-solid fa-qrcode"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Nhãn Thêu Digital Memory</h4>
+                                <p class="text-xs text-gray-500">Quét camera mở trang lưu giữ ảnh, video kỷ niệm độc bản được mã hóa bảo mật</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. GIỚI THIỆU THƯƠNG HIỆU -->
+    <section id="about" class="py-20 bg-white border-b border-brand-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-500 font-semibold text-xs uppercase tracking-widest">Giới Thiệu Thương Hiệu</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-800 mt-2">Sứ Mệnh Của Second Life (SL)</h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="bg-brand-50/60 rounded-3xl p-8 sm:p-12 border border-brand-100 shadow-sm leading-relaxed text-gray-700 space-y-6 max-w-4xl mx-auto text-base">
+                <p>
+                    Chúng tôi hiểu rằng đằng sau mỗi chiếc áo lớp, áo nhóm hay áo sự kiện đã cũ là cả một vùng ký ức thanh xuân vô giá. Với sứ mệnh kết nối giá trị cảm xúc và tinh thần tiêu dùng bền vững, Second Life (SL) ứng dụng quy trình tái chế tuần hoàn kết hợp công nghệ QR Code để trao cho những chiếc áo cũ một cuộc đời thứ hai hữu dụng dưới dạng túi Tote thời trang.
+                </p>
+                <p>
+                    Dự án được khởi xướng và vận hành bởi đội ngũ sinh viên sinh sống và điều hành HUB tinh gọn tại Quận 7, TP.HCM. Sự hài lòng và an tâm của bạn chính là kim chỉ nam cho mọi hoạt động của nhóm.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 text-center">
+                    <div class="p-4 bg-white rounded-2xl border border-brand-100 shadow-sm">
+                        <div class="text-brand-500 text-2xl font-bold mb-1">95.1%</div>
+                        <div class="text-xs text-gray-500">Gen Z có từ 3 đến 10 áo cũ kỷ niệm cất tủ</div>
+                    </div>
+                    <div class="p-4 bg-white rounded-2xl border border-brand-100 shadow-sm">
+                        <div class="text-brand-gold text-2xl font-bold mb-1">100%</div>
+                        <div class="text-xs text-gray-500">Tái chế tuần hoàn và Zero-Waste</div>
+                    </div>
+                    <div class="p-4 bg-white rounded-2xl border border-brand-100 shadow-sm">
+                        <div class="text-brand-500 text-2xl font-bold mb-1">Bảo mật PIN</div>
+                        <div class="text-xs text-gray-500">Cài mã khóa 4 số cho Kỷ niệm số</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ĐỘI NGŨ SÁNG LẬP -->
+    <section id="team" class="py-20 bg-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-500 font-semibold text-xs uppercase tracking-widest">Đội Ngũ Ban Điều Hành Cốt Lõi</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-800 mt-2">05 Nhà Sáng Lập Dự Án</h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-600 text-sm mt-4">
+                    Để xây dựng thương hiệu Second Life uy tín và chuyên nghiệp, chúng tôi tự hào được dẫn dắt bởi đội ngũ 5 sinh viên đa năng, vận hành trực tiếp các khối chức năng theo mô hình khởi nghiệp tinh gọn:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                <!-- Member 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-xl transition-all p-5 text-center flex flex-col items-center group">
+                    <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-2 border-brand-gold p-1 bg-brand-50 flex items-center justify-center">
+                        <img src="images/truc.jpg" alt="Nguyễn Hồ Thuỷ Trúc" class="w-full h-full object-cover rounded-full hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden')">
+                        <div class="w-full h-full rounded-full bg-brand-500 text-white font-serif font-bold text-2xl flex items-center justify-center shadow-inner">TT</div>
+                    </div>
+                    <h3 class="font-bold text-base text-brand-800">Nguyễn Hồ Thuỷ Trúc</h3>
+                    <span class="text-xs text-brand-gold font-bold uppercase tracking-wider mb-2">CEO - Giám đốc Điều hành</span>
+                    <p class="text-xs text-gray-500 leading-relaxed">Định hướng chiến lược, quản lý dòng tiền tổng thể và đại diện pháp lý cho dự án.</p>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-xl transition-all p-5 text-center flex flex-col items-center group">
+                    <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-2 border-brand-gold p-1 bg-brand-50 flex items-center justify-center">
+                        <img src="images/yen.jpg" alt="Trần Thị Ngọc Yến" class="w-full h-full object-cover rounded-full hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden')">
+                        <div class="w-full h-full rounded-full bg-brand-500 text-white font-serif font-bold text-2xl flex items-center justify-center shadow-inner">NY</div>
+                    </div>
+                    <h3 class="font-bold text-base text-brand-800">Trần Thị Ngọc Yến</h3>
+                    <span class="text-xs text-brand-gold font-bold uppercase tracking-wider mb-2">COO - Giám đốc Vận hành</span>
+                    <p class="text-xs text-gray-500 leading-relaxed">Giám sát xưởng may gia công, quy trình giặt tiệt trùng tại Hub và điều phối GHTK.</p>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-xl transition-all p-5 text-center flex flex-col items-center group">
+                    <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-2 border-brand-gold p-1 bg-brand-50 flex items-center justify-center">
+                        <img src="images/huu.jpg" alt="Đỗ Ngọc Hữu" class="w-full h-full object-cover rounded-full hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden')">
+                        <div class="w-full h-full rounded-full bg-brand-500 text-white font-serif font-bold text-2xl flex items-center justify-center shadow-inner">NH</div>
+                    </div>
+                    <h3 class="font-bold text-base text-brand-800">Đỗ Ngọc Hữu</h3>
+                    <span class="text-xs text-brand-gold font-bold uppercase tracking-wider mb-2">CTO - Giám đốc Công nghệ</span>
+                    <p class="text-xs text-gray-500 leading-relaxed">Nghiên cứu, vận hành hệ thống mã Dynamic QR Code, Cloud Notion/Drive và PIN 4 số.</p>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-xl transition-all p-5 text-center flex flex-col items-center group">
+                    <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-2 border-brand-gold p-1 bg-brand-50 flex items-center justify-center">
+                        <img src="images/giang.jpg" alt="Huỳnh Trúc Giang" class="w-full h-full object-cover rounded-full hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden')">
+                        <div class="w-full h-full rounded-full bg-brand-500 text-white font-serif font-bold text-2xl flex items-center justify-center shadow-inner">TG</div>
+                    </div>
+                    <h3 class="font-bold text-base text-brand-800">Huỳnh Trúc Giang</h3>
+                    <span class="text-xs text-brand-gold font-bold uppercase tracking-wider mb-2">CMO - Giám đốc Marketing</span>
+                    <p class="text-xs text-gray-500 leading-relaxed">Hoạch định truyền thông TikTok "Giải cứu áo cũ" và thiết kế Canva Visual Mockup.</p>
+                </div>
+
+                <!-- Member 5 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-xl transition-all p-5 text-center flex flex-col items-center group">
+                    <div class="w-28 h-28 rounded-full overflow-hidden mb-4 border-2 border-brand-gold p-1 bg-brand-50 flex items-center justify-center">
+                        <img src="images/my.jpg" alt="Nguyễn Trần Thảo My" class="w-full h-full object-cover rounded-full hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden')">
+                        <div class="w-full h-full rounded-full bg-brand-500 text-white font-serif font-bold text-2xl flex items-center justify-center shadow-inner">TM</div>
+                    </div>
+                    <h3 class="font-bold text-base text-brand-800">Nguyễn Trần Thảo My</h3>
+                    <span class="text-xs text-brand-gold font-bold uppercase tracking-wider mb-2">CSO - Giám đốc CSKH</span>
+                    <p class="text-xs text-gray-500 leading-relaxed">Vận hành quy trình chăm sóc khách hàng qua 6 giai đoạn dịch vụ và đo lường chỉ số NPS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. GÓI SẢN PHẨM & CHÍNH SÁCH GIÁ 6 THÁNG -->
+    <section id="products" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-brand-500 font-semibold text-xs uppercase tracking-widest">Danh Mục Dịch Vụ & Lộ Trình Giá</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-800 mt-2">Gói Sản Phẩm SECOND LIFE</h2>
+                </div>
+                <p class="text-gray-500 text-sm mt-2 md:mt-0 max-w-md">
+                    Chính sách giá 6 tháng minh bạch: Ưu đãi 149.000 VNĐ cho 30 đơn đầu tiên (Tháng 1–2), điều chỉnh về giá tiêu chuẩn 169.000 VNĐ (Tháng 3–6).
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden border-2 border-brand-500 shadow-xl flex flex-col group relative">
+                    <span class="absolute top-3 right-3 bg-brand-gold text-brand-800 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow z-10">Chủ Lực</span>
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?auto=format&fit=crop&w=600&q=80" alt="Gói Base Remake" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-brand-800 mb-1">Gói Túi Tote Phygital Cốt Lõi</h3>
+                            <p class="text-xs text-gray-500 mb-4">Túi Tote Remake + Nhãn thêu QR Digital Memory + Móc khóa Keychain Zero-Waste + Hộp Unboxing xịt thơm.</p>
+                            
+                            <div class="bg-brand-50 p-3.5 rounded-xl border border-brand-200 space-y-2">
+                                <div class="flex justify-between items-center text-xs pb-2 border-b border-brand-200/60">
+                                    <span class="font-semibold text-gray-600">Tháng 1–2 (30 đơn đầu):</span>
+                                    <span class="text-brand-500 font-bold text-base">149.000 VNĐ</span>
+                                </div>
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="font-semibold text-gray-600">Tháng 3–6 (Tiêu chuẩn):</span>
+                                    <span class="text-gray-800 font-bold text-sm">169.000 VNĐ</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2 border-t border-gray-100 pt-4">
+                            <button onclick="openProductModal('p1')" class="w-full py-2.5 bg-brand-50 text-brand-700 font-semibold text-xs rounded-xl hover:bg-brand-100 transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-regular fa-eye"></i> Xem chi tiết & Lộ trình giá
+                            </button>
+                            <button onclick="addToCart('p1', 'Gói Túi Tote Phygital Cốt Lõi', 149000, 'https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?auto=format&fit=crop&w=600&q=80')" class="w-full py-2.5 bg-brand-500 text-white font-semibold text-xs rounded-xl hover:bg-brand-600 transition-colors shadow-md flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Chọn Gói (Giá Ưu Đãi 149k)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80" alt="Add-on Thêu Tên" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-brand-100 text-brand-800 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-brand-200">Tùy Chọn Thêm</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-lg text-brand-800 mb-1">Add-on Thêu Tên / Ngày Kỷ Niệm</h3>
+                            <p class="text-xs text-gray-500 mb-3">Thêu vi tính chữ viết tên cá nhân, tên nhóm hoặc mốc ngày kỷ niệm theo yêu cầu.</p>
+                            <div class="text-brand-500 font-bold text-2xl mb-4">20.000 VNĐ</div>
+                        </div>
+                        <div class="space-y-2 border-t border-gray-100 pt-4">
+                            <button onclick="openProductModal('p2')" class="w-full py-2.5 bg-brand-50 text-brand-700 font-semibold text-xs rounded-xl hover:bg-brand-100 transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-regular fa-eye"></i> Xem chi tiết
+                            </button>
+                            <button onclick="addToCart('p2', 'Add-on Thêu Tên / Ngày Kỷ Niệm', 20000, 'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80')" class="w-full py-2.5 bg-brand-500 text-white font-semibold text-xs rounded-xl hover:bg-brand-600 transition-colors shadow-md flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden border border-brand-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80" alt="Add-on Khóa Kéo" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-brand-100 text-brand-800 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-brand-200">Tùy Chọn Thêm</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-bold text-lg text-brand-800 mb-1">Dây Khóa Kéo & Lót Canvas Dày</h3>
+                            <p class="text-xs text-gray-500 mb-3">Tra thêm dây khóa kéo kim loại miệng túi và may gia cố thêm lớp lót Canvas mộc.</p>
+                            <div class="text-brand-500 font-bold text-2xl mb-4">30.000 VNĐ</div>
+                        </div>
+                        <div class="space-y-2 border-t border-gray-100 pt-4">
+                            <button onclick="openProductModal('p3')" class="w-full py-2.5 bg-brand-50 text-brand-700 font-semibold text-xs rounded-xl hover:bg-brand-100 transition-colors flex items-center justify-center gap-1.5">
+                                <i class="fa-regular fa-eye"></i> Xem chi tiết
+                            </button>
+                            <button onclick="addToCart('p3', 'Add-on Dây Khóa Kéo & Lót Canvas', 30000, 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80')" class="w-full py-2.5 bg-brand-500 text-white font-semibold text-xs rounded-xl hover:bg-brand-600 transition-colors shadow-md flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. MÔ HÌNH CUNG CẤP DỊCH VỤ SECOND LIFE (6 GIAI ĐOẠN) -->
+    <section id="process" class="py-20 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-500 font-semibold text-xs uppercase tracking-widest">Quy Trình Chuẩn Hóa</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-800 mt-2">Mô Hình Cung Cấp Dịch Vụ SECOND LIFE</h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mt-4 rounded-full"></div>
+                <p class="text-xs text-gray-500 mt-3 italic">Bấm vào từng giai đoạn trong lộ trình dưới đây để xem hình ảnh minh họa thực tế và mô tả chi tiết:</p>
+            </div>
+
+            <!-- 6 Journey Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Stage 1 -->
+                <div onclick="openProcessModal(1)" class="bg-white p-6 rounded-2xl border border-brand-100 hover:border-brand-500 hover:shadow-xl transition-all cursor-pointer group shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 bg-brand-50 text-brand-500 rounded-full font-bold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-800 transition-colors text-sm">01</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Khởi Đầu</span>
+                        </div>
+                        <h4 class="font-bold text-base mb-2 text-brand-800">Giai đoạn 1: Tiếp nhận yêu cầu</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">Khách hàng liên hệ qua website hoặc mạng xã hội, gửi hình ảnh quần áo cũ và mô tả nhu cầu tái thiết kế.</p>
+                    </div>
+                    <span class="mt-6 text-xs text-brand-500 font-semibold group-hover:underline flex items-center gap-1">
+                        Xem chi tiết & Ảnh minh họa <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Stage 2 -->
+                <div onclick="openProcessModal(2)" class="bg-white p-6 rounded-2xl border border-brand-100 hover:border-brand-500 hover:shadow-xl transition-all cursor-pointer group shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 bg-brand-50 text-brand-500 rounded-full font-bold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-800 transition-colors text-sm">02</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Thẩm Định</span>
+                        </div>
+                        <h4 class="font-bold text-base mb-2 text-brand-800">Giai đoạn 2: Tư vấn & đánh giá chất liệu</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">SECOND LIFE kiểm tra tình trạng vải, kích thước, họa tiết và đánh giá khả năng tái thiết kế để tư vấn phương án phù hợp.</p>
+                    </div>
+                    <span class="mt-6 text-xs text-brand-500 font-semibold group-hover:underline flex items-center gap-1">
+                        Xem chi tiết & Ảnh minh họa <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Stage 3 -->
+                <div onclick="openProcessModal(3)" class="bg-white p-6 rounded-2xl border border-brand-100 hover:border-brand-500 hover:shadow-xl transition-all cursor-pointer group shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 bg-brand-50 text-brand-500 rounded-full font-bold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-800 transition-colors text-sm">03</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Xác Nhận</span>
+                        </div>
+                        <h4 class="font-bold text-base mb-2 text-brand-800">Giai đoạn 3: Thống nhất thiết kế & báo giá</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">Trao đổi về kiểu dáng, màu sắc, chi tiết thiết kế và thống nhất mức giá, thời gian hoàn thành trước khi xác nhận.</p>
+                    </div>
+                    <span class="mt-6 text-xs text-brand-500 font-semibold group-hover:underline flex items-center gap-1">
+                        Xem chi tiết & Ảnh minh họa <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Stage 4 -->
+                <div onclick="openProcessModal(4)" class="bg-white p-6 rounded-2xl border border-brand-100 hover:border-brand-500 hover:shadow-xl transition-all cursor-pointer group shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 bg-brand-50 text-brand-500 rounded-full font-bold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-800 transition-colors text-sm">04</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Sản Xuất</span>
+                        </div>
+                        <h4 class="font-bold text-base mb-2 text-brand-800">Giai đoạn 4: Tiếp nhận quần áo & gia công</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">Sau khi khách hàng xác nhận, tiến hành tiếp nhận quần áo cũ và chuyển nguyên liệu đến đơn vị gia công đối tác.</p>
+                    </div>
+                    <span class="mt-6 text-xs text-brand-500 font-semibold group-hover:underline flex items-center gap-1">
+                        Xem chi tiết & Ảnh minh họa <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Stage 5 -->
+                <div onclick="openProcessModal(5)" class="bg-white p-6 rounded-2xl border border-brand-100 hover:border-brand-500 hover:shadow-xl transition-all cursor-pointer group shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 bg-brand-50 text-brand-500 rounded-full font-bold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-800 transition-colors text-sm">05</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Kiểm Định</span>
+                        </div>
+                        <h4 class="font-bold text-base mb-2 text-brand-800">Giai đoạn 5: Kiểm tra và hoàn thiện</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">SECOND LIFE kiểm tra đường may, hình dáng, chất liệu sản phẩm sau gia công đảm bảo đáp ứng đúng yêu cầu.</p>
+                    </div>
+                    <span class="mt-6 text-xs text-brand-500 font-semibold group-hover:underline flex items-center gap-1">
+                        Xem chi tiết & Ảnh minh họa <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </span>
+                </div>
+
+                <!-- Stage 6 -->
+                <div onclick="openProcessModal(6)" class="bg-white p-6 rounded-2xl border border-brand-100 hover:border-brand-500 hover:shadow-xl transition-all cursor-pointer group shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 bg-brand-50 text-brand-500 rounded-full font-bold flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-800 transition-colors text-sm">06</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Bàn Giao</span>
+                        </div>
+                        <h4 class="font-bold text-base mb-2 text-brand-800">Giai đoạn 6: Tạo Digital Memory & bàn giao</h4>
+                        <p class="text-xs text-gray-500 leading-relaxed">Tạo mã QR lưu trữ hình ảnh ban đầu và câu chuyện kỷ niệm, đóng gói hoàn thiện và giao sản phẩm đến khách hàng.</p>
+                    </div>
+                    <span class="mt-6 text-xs text-brand-500 font-semibold group-hover:underline flex items-center gap-1">
+                        Xem chi tiết & Ảnh minh họa <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. ĐÁNH GIÁ TỪ KHÁCH HÀNG -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-500 font-semibold text-xs uppercase tracking-widest">Phản Hồi Thực Tế</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-800 mt-2">Khách Hàng Nói Gì Về Second Life?</h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-brand-50/50 p-8 rounded-2xl border border-brand-100 shadow-sm">
+                    <div class="flex text-brand-gold mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                        "Chiếc áo lớp cấp 3 mình cất tủ 3 năm nay biến thành túi Tote siêu xinh. Quét mã QR ra toàn bộ album ảnh kỷ niệm cũ. Rất ý nghĩa!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-500 text-white font-bold flex items-center justify-center text-sm">MH</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-800">Minh Hà</h4>
+                            <span class="text-xs text-gray-400">Sinh viên - Khách Pre-order</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-50/50 p-8 rounded-2xl border border-brand-100 shadow-sm">
+                    <div class="flex text-brand-gold mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                        "Quy trình lấy áo tận nhà ở Quận 7 siêu tiện. Trước khi may nhóm gửi bản demo Canva cho duyệt phom trước. Mở hộp xịt thơm tinh dầu rất ưng!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold text-brand-800 font-bold flex items-center justify-center text-sm">TA</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-800">Tuấn Anh</h4>
+                            <span class="text-xs text-gray-400">Quận 7, TP.HCM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-50/50 p-8 rounded-2xl border border-brand-100 shadow-sm">
+                    <div class="flex text-brand-gold mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                        "Tính năng mã QR cài mật khẩu 4 số xịn đét. Mình làm túi tặng người yêu nhân kỷ niệm 2 năm, bên trong lưu video tình yêu riêng tư."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brand-200 text-brand-800 font-bold flex items-center justify-center text-sm">PL</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-brand-800">Phương Linh</h4>
+                            <span class="text-xs text-gray-400">Sinh viên RMIT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER & THÔNG TIN LIÊN HỆ -->
+    <footer id="contact" class="bg-brand-800 text-white pt-16 pb-12 border-t border-brand-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-brand-gold text-brand-800 flex items-center justify-center font-serif text-lg font-bold">SL</div>
+                        <span class="font-serif text-xl font-bold tracking-wider text-white">SECOND LIFE</span>
+                    </div>
+                    <p class="text-xs text-brand-200/80 leading-relaxed">
+                        Thời trang Bền vững kết hợp Công nghệ Phygital. Dự án khởi nghiệp tuần hoàn thành lập và vận hành bởi đội ngũ sinh viên nhiệt huyết.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm text-brand-gold uppercase tracking-wider mb-4">Danh Mục Trực Tuyến</h4>
+                    <ul class="space-y-2 text-xs text-brand-100">
+                        <li><a href="#about" class="hover:underline">Về Thương Hiệu Second Life</a></li>
+                        <li><a href="#team" class="hover:underline">Đội Ngũ Nhà Sáng Lập</a></li>
+                        <li><a href="#products" class="hover:underline">Sản Phẩm & Bảng Giá</a></li>
+                        <li><a href="#process" class="hover:underline">Mô Hình Dịch Vụ 6 Giai Đoạn</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm text-brand-gold uppercase tracking-wider mb-4">KÊNH LIÊN HỆ TRỰC TIẾP HỆ THỐNG</h4>
+                    <p class="text-[11px] text-gray-300 mb-3 italic">Bấm vào bất kỳ khung nào dưới đây để tương tác ngay:</p>
+                    <ul class="space-y-3 text-xs text-brand-100">
+                        <li>
+                            <a href="https://maps.google.com/?q=36A+Đường+số+1,+Phường+Tân+Mỹ,+Quận+7,+Thành+phố+Hồ+Chí+Minh" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2.5 p-3 bg-brand-700/80 rounded-xl hover:bg-brand-600 transition-all border border-brand-600 group shadow-sm">
+                                <i class="fa-solid fa-location-dot text-brand-gold text-lg mt-0.5 group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <strong class="text-white block">Địa chỉ HUB Vận Hành:</strong>
+                                    <span class="text-brand-200 group-hover:underline">36A, Đường số 1, Phường Tân Mỹ, TP.HCM (Xem chỉ đường Maps)</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:0374090750" class="flex items-center gap-2.5 p-3 bg-brand-700/80 rounded-xl hover:bg-brand-600 transition-all border border-brand-600 group shadow-sm">
+                                <i class="fa-solid fa-phone-volume text-brand-gold text-lg group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <strong class="text-white block">Hotline / Zalo CSKH (Bấm để Gọi ngay):</strong>
+                                    <span class="text-brand-gold font-bold text-sm group-hover:underline">0374090750</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:secondlife.ufm@gmail.com" class="flex items-center gap-2.5 p-3 bg-brand-700/80 rounded-xl hover:bg-brand-600 transition-all border border-brand-600 group shadow-sm">
+                                <i class="fa-solid fa-envelope text-brand-gold text-lg group-hover:scale-110 transition-transform"></i>
+                                <div>
+                                    <strong class="text-white block">Hòm Thư Email Chính Thức:</strong>
+                                    <span class="text-brand-200 group-hover:underline">secondlife.ufm@gmail.com (Bấm để Soạn thư)</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-brand-700 pt-8 text-center text-xs text-brand-200/60">
+                <p>&copy; 2026 SECOND LIFE Startup Project. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 10. FLOATING WIDGETS & AI CHATBOT -->
+    <div class="fixed bottom-6 left-6 z-40 flex flex-col gap-3">
+        <a href="tel:0374090750" class="w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center text-xl shadow-2xl hover:scale-110 transition-transform border-2 border-white" title="Gọi Hotline 0374090750">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="mailto:secondlife.ufm@gmail.com" class="w-12 h-12 bg-brand-gold text-brand-800 rounded-full flex items-center justify-center text-xl shadow-2xl hover:scale-110 transition-transform border-2 border-white" title="Gửi Email">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+    </div>
+
+    <button onclick="toggleChatbot()" class="fixed bottom-6 right-6 z-40 bg-brand-500 text-white p-4 rounded-full shadow-2xl hover:bg-brand-600 hover:scale-105 transition-all flex items-center gap-2 border-2 border-brand-gold" aria-label="Open AI Chatbot">
+        <i class="fa-solid fa-robot text-xl animate-bounce"></i>
+        <span class="font-bold text-xs hidden sm:inline">Tư Vấn Tự Động (24/7)</span>
+    </button>
+
+    <div id="chatbot-window" class="fixed bottom-24 right-4 sm:right-6 z-50 w-[92vw] sm:w-96 bg-white rounded-3xl shadow-2xl border border-brand-100 hidden flex-col overflow-hidden max-h-[520px] transition-all">
+        <div class="bg-brand-700 text-white p-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-brand-gold text-brand-800 font-bold flex items-center justify-center text-sm shadow">SL</div>
+                <div>
+                    <h4 class="font-bold text-sm">Trợ Lý Tự Động Second Life</h4>
+                    <span class="text-[10px] text-brand-200 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-green-400 inline-block animate-ping"></span> Đang trực tuyến (Sẵn sàng 24/7)
+                    </span>
+                </div>
+            </div>
+            <button onclick="toggleChatbot()" class="text-brand-200 hover:text-white p-1">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-brand-50/50 text-xs min-h-[260px] max-h-[320px]">
+            <div class="flex items-start gap-2">
+                <div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold text-[10px] flex-shrink-0">SL</div>
+                <div class="bg-white p-3 rounded-2xl border border-brand-100 shadow-sm text-gray-700 space-y-1 max-w-[85%]">
+                    <p>Xin chào! Mình là Trợ lý tư vấn tự động của SECOND LIFE 🌿</p>
+                    <p>Mình có thể giúp gì cho bạn hôm nay? Vui lòng chọn câu hỏi nhanh bên dưới nhé!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-2.5 bg-gray-50 border-t border-brand-100 flex gap-2 overflow-x-auto text-[11px] whitespace-nowrap">
+            <button onclick="askBot('Gói Pre-order giá bao nhiêu?')" class="px-3 py-1.5 bg-white border border-brand-200 text-brand-700 rounded-full hover:bg-brand-50 transition-colors shadow-sm">💰 Giá dịch vụ bao nhiêu?</button>
+            <button onclick="askBot('Gửi áo cũ bằng cách nào?')" class="px-3 py-1.5 bg-white border border-brand-200 text-brand-700 rounded-full hover:bg-brand-50 transition-colors shadow-sm">📦 Cách gửi áo cũ?</button>
+            <button onclick="askBot('Bao lâu nhận được túi?')" class="px-3 py-1.5 bg-white border border-brand-200 text-brand-700 rounded-full hover:bg-brand-50 transition-colors shadow-sm">⏱️ Thời gian hoàn thành?</button>
+            <button onclick="askBot('Mã QR có bảo mật không?')" class="px-3 py-1.5 bg-white border border-brand-200 text-brand-700 rounded-full hover:bg-brand-50 transition-colors shadow-sm">🔒 Mã QR có bảo mật không?</button>
+        </div>
+
+        <form id="chat-form" onsubmit="handleChatSubmit(event)" class="p-3 bg-white border-t border-gray-200 flex gap-2">
+            <input type="text" id="chat-input" placeholder="Nhập thắc mắc của bạn..." class="flex-1 px-3 py-2 border rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none">
+            <button type="submit" class="px-4 py-2 bg-brand-500 text-white font-bold rounded-xl hover:bg-brand-600 transition-colors text-xs flex items-center justify-center">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- 11. MODAL HIỂN THỊ CHI TIẾT 6 GIAI ĐOẠN DỊCH VỤ -->
+    <div id="process-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm" onclick="closeProcessModal()"></div>
+        <div class="relative bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl z-10 max-h-[90vh] flex flex-col">
+            <div class="p-5 bg-brand-700 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <span id="process-modal-step" class="w-7 h-7 bg-brand-gold text-brand-800 rounded-full font-bold flex items-center justify-center text-xs">1</span>
+                    <h3 id="process-modal-title" class="font-serif font-bold text-lg">Chi Tiết Giai Đoạn</h3>
+                </div>
+                <button onclick="closeProcessModal()" class="text-brand-200 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-4">
+                <img id="process-modal-img" src="" alt="Giai đoạn dịch vụ" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542744094-3a31b272c490?auto=format&fit=crop&w=800&q=80';" class="w-full h-56 object-cover rounded-2xl border shadow-sm">
+                <p id="process-modal-desc" class="text-xs text-gray-600 leading-relaxed bg-brand-50 p-4 rounded-xl border border-brand-100"></p>
+                <div class="space-y-2 border-t pt-3">
+                    <h4 class="font-bold text-xs text-brand-800 uppercase">Cam kết chất lượng từ Second Life:</h4>
+                    <p id="process-modal-benefit" class="text-xs text-brand-600 font-medium flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-brand-gold"></i> <span>...</span>
+                    </p>
+                </div>
+            </div>
+            <div class="p-4 bg-gray-50 border-t flex justify-end">
+                <button onclick="closeProcessModal()" class="px-6 py-2 bg-brand-500 text-white font-semibold text-xs rounded-xl hover:bg-brand-600 shadow">Đã hiểu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 12. DRAWERS & MODALS (CART & CHECKOUT) -->
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer()"></div>
+        <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <div class="p-6 bg-brand-50 border-b border-brand-100 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-brand-500 text-xl"></i>
+                        <h3 class="font-bold text-lg text-brand-800">Giỏ Hàng Dịch Vụ</h3>
+                    </div>
+                    <button onclick="toggleCartDrawer()" class="text-gray-400 hover:text-gray-600 p-2">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <div id="cart-empty-msg" class="text-center py-12 text-gray-400">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3 block"></i>
+                        Giỏ hàng đang trống. Hãy chọn gói Pre-order nhé!
+                    </div>
+                </div>
+
+                <div class="p-6 border-t border-gray-100 bg-gray-50 space-y-4">
+                    <div class="flex justify-between items-center text-base font-bold text-gray-900">
+                        <span>Tổng tiền tạm tính:</span>
+                        <span id="cart-total-price" class="text-brand-500 text-xl">0 VNĐ</span>
+                    </div>
+                    <p class="text-[11px] text-gray-500 italic">* Đã bao gồm trợ giá ship 2 chiều & Tiệt trùng Hub Tân Mỹ.</p>
+                    <button id="checkout-btn" onclick="openCheckoutModal()" disabled class="w-full py-4 bg-brand-500 text-white font-bold rounded-xl hover:bg-brand-600 transition-all disabled:opacity-50 shadow-lg flex items-center justify-center gap-2">
+                        <span>Tiến Hành Đặt Dịch Vụ</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm" onclick="closeProductModal()"></div>
+        <div class="relative bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl z-10 max-h-[90vh] flex flex-col">
+            <div class="p-6 bg-brand-50 border-b border-brand-100 flex justify-between items-center">
+                <h3 id="modal-title" class="font-serif font-bold text-xl text-brand-800">Chi Tiết Gói Dịch Vụ</h3>
+                <button onclick="closeProductModal()" class="text-gray-400 hover:text-gray-600 p-1">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="p-6 overflow-y-auto space-y-6"></div>
+            <div class="p-4 bg-gray-50 border-t border-gray-100 flex justify-end gap-3">
+                <button onclick="closeProductModal()" class="px-5 py-2.5 bg-gray-200 text-gray-700 font-semibold text-xs rounded-xl hover:bg-gray-300">Đóng</button>
+                <button id="modal-add-btn" class="px-6 py-2.5 bg-brand-500 text-white font-semibold text-xs rounded-xl hover:bg-brand-600 shadow-md">Thêm vào giỏ hàng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm" onclick="closeCheckoutModal()"></div>
+        <div class="relative bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl z-10 max-h-[90vh] flex flex-col">
+            <div class="p-6 bg-brand-700 text-white flex justify-between items-center">
+                <div>
+                    <h3 class="font-serif font-bold text-xl">Đăng Ký Đặt Dịch Vụ Pre-Order</h3>
+                    <p class="text-xs text-brand-200">Điền thông tin lấy áo tận nhà & Cấu hình Kỷ niệm số</p>
+                </div>
+                <button onclick="closeCheckoutModal()" class="text-brand-200 hover:text-white">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <form id="order-form" onsubmit="handleOrderSubmit(event)" class="p-6 overflow-y-auto space-y-5 text-sm">
+                <div class="space-y-3">
+                    <h4 class="font-bold text-brand-800 text-xs uppercase border-b pb-1">1. Thông tin Khách hàng & Giao nhận</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Họ và tên *</label>
+                            <input type="text" required placeholder="Nguyễn Văn A" class="w-full px-3 py-2 border rounded-xl focus:ring-2 focus:ring-brand-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold mb-1">Số điện thoại / Zalo *</label>
+                            <input type="tel" required placeholder="0374090750" class="w-full px-3 py-2 border rounded-xl focus:ring-2 focus:ring-brand-500 outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold mb-1">Địa chỉ lấy quần áo cũ *</label>
+                        <input type="text" required placeholder="Số nhà, Đường, Phường, Quận / TP.HCM..." class="w-full px-3 py-2 border rounded-xl focus:ring-2 focus:ring-brand-500 outline-none">
+                    </div>
+                </div>
+
+                <div class="space-y-3 pt-2">
+                    <h4 class="font-bold text-brand-800 text-xs uppercase border-b pb-1">2. Ảnh chụp quần áo cũ (Giai đoạn 1)</h4>
+                    <div class="border-2 border-dashed border-brand-200 rounded-xl p-4 text-center bg-brand-50/50">
+                        <i class="fa-solid fa-cloud-arrow-up text-2xl text-brand-500 mb-1"></i>
+                        <p class="text-xs font-semibold text-brand-800">Tải lên hình ảnh quần áo cũ cần tái thiết kế</p>
+                        <input type="file" multiple accept="image/*" class="mt-2 text-xs text-gray-500">
+                    </div>
+                </div>
+
+                <div class="space-y-3 pt-2">
+                    <h4 class="font-bold text-brand-800 text-xs uppercase border-b pb-1">3. Cấu hình Mã QR Digital Memory (Giai đoạn 6)</h4>
+                    <div>
+                        <label class="block text-xs font-semibold mb-1">Link Drive / Notion chứa hình ảnh/video kỷ niệm</label>
+                        <input type="url" placeholder="https://drive.google.com/..." class="w-full px-3 py-2 border rounded-xl focus:ring-2 focus:ring-brand-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold mb-1">Mật khẩu PIN 4 số bảo vệ QR (Nếu có)</label>
+                        <input type="password" maxlength="4" placeholder="Ví dụ: 1234" class="w-full px-3 py-2 border rounded-xl focus:ring-2 focus:ring-brand-500 outline-none">
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t">
+                    <button type="submit" class="w-full py-4 bg-brand-500 text-white font-bold rounded-xl hover:bg-brand-600 shadow-xl text-base flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Xác Nhận Hoàn Tất Đặt Dịch Vụ</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Thank You Modal -->
+    <div id="thankyou-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div class="fixed inset-0 bg-gray-900/70 backdrop-blur-md"></div>
+        <div class="relative bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl z-10 p-8 text-center space-y-6">
+            <div class="w-20 h-20 bg-brand-100 text-brand-500 rounded-full flex items-center justify-center mx-auto text-4xl shadow-inner animate-bounce">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="space-y-2">
+                <span class="bg-brand-gold/20 text-brand-800 text-xs font-bold px-3 py-1 rounded-full uppercase">🎉 Đặt Dịch Vụ Thành Công!</span>
+                <h3 class="font-serif text-2xl font-bold text-brand-800">Cảm Ơn Bạn Đã Đồng Hành Cùng Second Life!</h3>
+            </div>
+            <p class="text-xs text-gray-600 leading-relaxed text-left bg-brand-50 p-4 rounded-2xl border border-brand-100">
+                Xin chân thành cảm ơn quý khách đã tin tưởng và lựa chọn dịch vụ của Second Life. Đội ngũ tư vấn viên của chúng tôi sẽ liên hệ lại với quý khách qua Hotline/Zalo (0374090750) trong vòng 15 phút để xác nhận yêu cầu và hướng dẫn gửi áo.
+            </p>
+            <button onclick="closeThankyouModal()" class="w-full py-3.5 bg-brand-500 text-white font-bold rounded-xl hover:bg-brand-600 transition-colors shadow-lg">
+                Trở Về Trang Chủ
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-brand-800 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-brand-gold/30">
+            <div class="w-8 h-8 rounded-full bg-brand-gold text-brand-800 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-check text-sm"></i>
+            </div>
+            <div>
+                <h5 class="font-bold text-xs text-brand-gold" id="toast-title">Thành công!</h5>
+                <p class="text-xs text-gray-200" id="toast-message">Đã thêm vào giỏ hàng.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 13. JAVASCRIPT LOGIC -->
+    <script>
+        let cart = JSON.parse(localStorage.getItem('sl_cart')) || [];
+
+        // ĐỒNG HỒ ĐẾM NGƯỢC PRE-ORDER THỜI GIAN THỰC
+        function startCountdown() {
+            let targetDate = new Date().getTime() + (3 * 24 * 60 * 60 * 1000) + (12 * 60 * 60 * 1000);
+            
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown-timer").innerText = "ĐÃ ĐẾN GIỜ MỞ PRE-ORDER!";
+                    return;
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                const formatted = `${days < 10 ? '0' + days : days}d : ${hours < 10 ? '0' + hours : hours}h : ${minutes < 10 ? '0' + minutes : minutes}m : ${seconds < 10 ? '0' + seconds : seconds}s`;
+                const el = document.getElementById("countdown-timer");
+                if (el) el.innerText = formatted;
+            }, 1000);
+        }
+
+        const productDetails = {
+            p1: {
+                title: "Gói Túi Tote Phygital Cốt Lõi",
+                price: "149.000 VNĐ (Ưu đãi Tháng 1–2)",
+                rawPrice: 149000,
+                img: "https://images.unsplash.com/photo-1597484661643-2f5fef640dd1?auto=format&fit=crop&w=600&q=80",
+                desc: "Gói dịch vụ Remake toàn diện giúp biến 01 chiếc áo kỷ niệm cũ thành 01 chiếc túi Tote thời trang có gắn nhãn thêu QR Digital Memory.",
+                features: [
+                    "Tháng 1–2: Áp dụng giá ưu đãi 149.000 VNĐ cho 30 đơn hàng đầu tiên.",
+                    "Tháng 3–6: Áp dụng mức giá tiêu chuẩn 169.000 VNĐ/sản phẩm.",
+                    "Túi Tote may lót thêm Canvas mộc đứng phom chịu lực tốt.",
+                    "Nhãn thêu vi tính QR Code tích hợp Digital Memory bảo mật PIN 4 số."
+                ],
+                review: "Ưu đãi trải nghiệm dành cho 30 đơn hàng đầu tiên nhằm hoàn thiện chất lượng dịch vụ."
+            },
+            p2: {
+                title: "Add-on Thêu Tên / Ngày Kỷ Niệm",
+                price: "20.000 VNĐ",
+                rawPrice: 20000,
+                img: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80",
+                desc: "Thêu vi tính tên cá nhân, chữ viết tắt hoặc mốc ngày kỷ niệm riêng lên vị trí góc túi theo yêu cầu.",
+                features: [
+                    "Sử dụng chỉ thêu công nghiệp không phai màu.",
+                    "Tùy chọn phông chữ Serif hoặc viết tay."
+                ],
+                review: "Tạo dấu ấn cá nhân hóa độc bản."
+            },
+            p3: {
+                title: "Add-on Dây Khóa Kéo & Lót Canvas",
+                price: "30.000 VNĐ",
+                rawPrice: 30000,
+                img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+                desc: "May thêm dây khóa kéo kim loại miệng túi và gia cố lớp lót chống thấm nước nhẹ.",
+                features: [
+                    "Bảo vệ an toàn tuyệt đối cho laptop, ví tiền khi mang đi học.",
+                    "Lót Canvas mộc dày dặn đứng phom túi."
+                ],
+                review: "Rất khuyên dùng cho sinh viên mang nhiều đồ."
+            }
+        };
+
+        // DỮ LIỆU ĐẦY ĐỦ 6 GIAI ĐOẠN DỊCH VỤ (ĐÃ FIX ỔN ĐỊNH TOÀN BỘ ẢNH)
+        const processDetails = {
+            1: {
+                step: "01",
+                title: "Giai đoạn 1: Tiếp nhận yêu cầu",
+                img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80",
+                desc: "Khách hàng liên hệ với SECOND LIFE thông qua website hoặc các nền tảng mạng xã hội. Khách hàng gửi hình ảnh quần áo cũ và mô tả nhu cầu tái thiết kế thành sản phẩm mới.",
+                benefit: "Tương tác nhanh chóng, ghi nhận đầy đủ thông tin mong muốn của khách hàng ngay từ bước khởi đầu."
+            },
+            2: {
+                step: "02",
+                title: "Giai đoạn 2: Tư vấn và đánh giá chất liệu",
+                img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
+                desc: "SECOND LIFE kiểm tra tình trạng vải, kích thước, họa tiết và đặc điểm của quần áo. Đánh giá khả năng tái thiết kế và tư vấn phương án phù hợp với chất liệu cũng như mong muốn của khách hàng.",
+                benefit: "Đảm bảo chất liệu vải cũ đáp ứng độ bền và tính thẩm mỹ tối ưu khi chuyển đổi thành túi Tote."
+            },
+            3: {
+                step: "03",
+                title: "Giai đoạn 3: Thống nhất thiết kế và báo giá",
+                img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
+                desc: "Trao đổi với khách hàng về kiểu dáng, màu sắc, chi tiết thiết kế và phương án thực hiện. Thống nhất mức giá (149.000 VNĐ hoặc 169.000 VNĐ), thời gian dự kiến hoàn thành và các yêu cầu liên quan trước khi xác nhận đơn hàng.",
+                benefit: "Minh bạch tuyệt đối về chi phí ưu đãi và lộ trình thực hiện."
+            },
+            4: {
+                step: "04",
+                title: "Giai đoạn 4: Tiếp nhận quần áo và gia công",
+                img: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&w=800&q=80",
+                desc: "Sau khi khách hàng xác nhận phương án thiết kế và báo giá, SECOND LIFE tiến hành tiếp nhận quần áo cũ. Chuyển nguyên liệu đến đơn vị gia công đối tác để thực hiện tái thiết kế theo yêu cầu đã thống nhất.",
+                benefit: "Quy trình vận chuyển và gia công khép kín, chuẩn hóa chuyên nghiệp."
+            },
+            5: {
+                step: "05",
+                title: "Giai đoạn 5: Kiểm tra và hoàn thiện",
+                img: "https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?auto=format&fit=crop&w=800&q=80",
+                desc: "SECOND LIFE kiểm tra sản phẩm sau gia công. Đánh giá đường may, hình dáng, chất liệu và các chi tiết thiết kế để đảm bảo sản phẩm đáp ứng yêu cầu đã thống nhất với khách hàng.",
+                benefit: "Kiểm định nghiêm ngặt từng chi tiết trước khi xuất xưởng giao đến khách hàng."
+            },
+            6: {
+                step: "06",
+                title: "Giai đoạn 6: Tạo Digital Memory và bàn giao",
+                img: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80",
+                desc: "SECOND LIFE tạo mã QR Digital Memory gắn với từng sản phẩm. Mã QR lưu trữ hình ảnh quần áo ban đầu cùng câu chuyện, thông điệp hoặc kỷ niệm do khách hàng cung cấp. Sản phẩm được đóng gói hoàn thiện và giao đến khách hàng.",
+                benefit: "Sản phẩm hoàn thiện tinh xảo kết hợp không gian kỷ niệm số độc bản trao tận tay khách hàng."
+            }
+        };
+
+        // --- PROCESS MODAL ---
+        function openProcessModal(step) {
+            const data = processDetails[step];
+            if (!data) return;
+
+            document.getElementById('process-modal-step').innerText = data.step;
+            document.getElementById('process-modal-title').innerText = data.title;
+            const modalImg = document.getElementById('process-modal-img');
+            modalImg.src = data.img;
+            document.getElementById('process-modal-desc').innerText = data.desc;
+            document.getElementById('process-modal-benefit').querySelector('span').innerText = data.benefit;
+
+            document.getElementById('process-modal').classList.remove('hidden');
+        }
+
+        function closeProcessModal() {
+            document.getElementById('process-modal').classList.add('hidden');
+        }
+
+        // --- CART LOGIC WITH LOCALSTORAGE ---
+        function addToCart(id, name, price, img) {
+            const existing = cart.find(item => item.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ id, name, price, img, qty: 1 });
+            }
+            saveCart();
+            updateCartUI();
+            showToast("Đã thêm!", `${name} đã ở trong giỏ hàng.`);
+        }
+
+        function updateCartQuantity(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+            }
+            saveCart();
+            updateCartUI();
+        }
+
+        function saveCart() {
+            localStorage.setItem('sl_cart', JSON.stringify(cart));
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const container = document.getElementById('cart-items-container');
+            const totalEl = document.getElementById('cart-total-price');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            const totalQty = cart.reduce((sum, i) => sum + i.qty, 0);
+            const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+
+            badge.innerText = totalQty;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3 block"></i>
+                        Giỏ hàng đang trống. Hãy chọn gói Pre-order nhé!
+                    </div>`;
+                checkoutBtn.disabled = true;
+            } else {
+                checkoutBtn.disabled = false;
+                container.innerHTML = cart.map(item => `
+                    <div class="flex items-center justify-between p-3 bg-brand-50/60 rounded-2xl border border-brand-100">
+                        <img src="${item.img}" class="w-12 h-12 object-cover rounded-xl border">
+                        <div class="flex-1 px-3">
+                            <h4 class="font-bold text-xs text-brand-800">${item.name}</h4>
+                            <p class="text-xs text-brand-500 font-semibold">${item.price.toLocaleString()} VNĐ</p>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white px-2 py-1 rounded-lg border text-xs">
+                            <button onclick="updateCartQuantity('${item.id}', -1)" class="font-bold text-gray-500 hover:text-brand-500 px-1">-</button>
+                            <span class="font-bold text-gray-800">${item.qty}</span>
+                            <button onclick="updateCartQuantity('${item.id}', 1)" class="font-bold text-gray-500 hover:text-brand-500 px-1">+</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            totalEl.innerText = `${totalPrice.toLocaleString()} VNĐ`;
+        }
+
+        function toggleCartDrawer() {
+            document.getElementById('cart-drawer').classList.toggle('hidden');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function openProductModal(id) {
+            const p = productDetails[id];
+            if (!p) return;
+
+            document.getElementById('modal-title').innerText = p.title;
+            document.getElementById('modal-body').innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <img src="${p.img}" class="w-full h-56 object-cover rounded-2xl border shadow-sm">
+                    <div class="space-y-3">
+                        <span class="text-2xl font-bold text-brand-500">${p.price}</span>
+                        <p class="text-xs text-gray-600 leading-relaxed">${p.desc}</p>
+                        <div class="p-3 bg-brand-50 rounded-xl border border-brand-100 text-xs text-brand-800">
+                            <strong>Chính sách giá 6 tháng:</strong> ${p.review}
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-2 pt-2 border-t">
+                    <h4 class="font-bold text-xs uppercase text-brand-800">Quyền lợi và chi tiết:</h4>
+                    <ul class="space-y-1.5 text-xs text-gray-600">
+                        ${p.features.map(f => `<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-500"></i> ${f}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+
+            document.getElementById('modal-add-btn').onclick = function() {
+                addToCart(id, p.title, p.rawPrice, p.img);
+                closeProductModal();
+            };
+
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function openCheckoutModal() {
+            toggleCartDrawer();
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function handleOrderSubmit(e) {
+            e.preventDefault();
+            cart = [];
+            saveCart();
+            updateCartUI();
+            closeCheckoutModal();
+            document.getElementById('thankyou-modal').classList.remove('hidden');
+        }
+
+        function closeThankyouModal() {
+            document.getElementById('thankyou-modal').classList.add('hidden');
+        }
+
+        function showToast(title, msg) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-message').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
+        }
+
+        // --- AI CHATBOT LOGIC ---
+        function toggleChatbot() {
+            const win = document.getElementById('chatbot-window');
+            win.classList.toggle('hidden');
+            win.classList.toggle('flex');
+        }
+
+        function askBot(query) {
+            const chatMessages = document.getElementById('chat-messages');
+            const userMsgHtml = `
+                <div class="flex items-start justify-end gap-2">
+                    <div class="bg-brand-500 text-white p-3 rounded-2xl shadow-sm max-w-[85%]">
+                        <p>${query}</p>
+                    </div>
+                </div>`;
+            chatMessages.insertAdjacentHTML('beforeend', userMsgHtml);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            let botReply = "";
+            const q = query.toLowerCase();
+
+            if (q.includes("giá") || q.includes("bao nhiêu")) {
+                botReply = "Tháng 1–2 SECOND LIFE áp dụng mức giá ưu đãi 149.000 VNĐ cho 30 đơn hàng đầu tiên. Từ tháng 3–6 giá tiêu chuẩn là 169.000 VNĐ/sản phẩm.";
+            } else if (q.includes("gửi áo") || q.includes("lấy áo") || q.includes("ship")) {
+                botReply = "Theo Giai đoạn 4 của mô hình dịch vụ, sau khi thống nhất thiết kế, chúng tôi tiến hành tiếp nhận quần áo cũ và chuyển cho đơn vị gia công đối tác thực hiện.";
+            } else if (q.includes("bao lâu") || q.includes("thời gian")) {
+                botReply = "Thời gian thực hiện toàn bộ 6 giai đoạn dịch vụ từ 7 đến 10 ngày làm việc.";
+            } else if (q.includes("bảo mật") || q.includes("mật khẩu") || q.includes("qr")) {
+                botReply = "Giai đoạn 6 tích hợp mã QR Digital Memory kèm mã PIN 4 số bảo mật kỷ niệm của bạn tuyệt đối.";
+            } else {
+                botReply = "Cảm ơn bạn! Bạn có thể bấm trực tiếp nút Gọi Hotline 0374090750 ở góc trái màn hình để được hỗ trợ tư vấn 1-1 ngay nhé!";
+            }
+
+            setTimeout(() => {
+                const botMsgHtml = `
+                    <div class="flex items-start gap-2">
+                        <div class="w-7 h-7 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold text-[10px] flex-shrink-0">SL</div>
+                        <div class="bg-white p-3 rounded-2xl border border-brand-100 shadow-sm text-gray-700 space-y-1 max-w-[85%]">
+                            <p>${botReply}</p>
+                        </div>
+                    </div>`;
+                chatMessages.insertAdjacentHTML('beforeend', botMsgHtml);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 500);
+        }
+
+        function handleChatSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('chat-input');
+            const val = input.value.trim();
+            if (val) {
+                askBot(val);
+                input.value = '';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            updateCartUI();
+            startCountdown();
+        });
+    </script>
+</body>
+</html>
